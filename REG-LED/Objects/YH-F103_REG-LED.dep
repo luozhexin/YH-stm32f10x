@@ -1,0 +1,5 @@
+Dependencies for Project 'YH-F103', Target 'REG-LED': (DO NOT MODIFY !)
+F (.\main.c)(0x5E26A2FA)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections-I C:\Users\onewall\Desktop\REG-LED\RTE-I D:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\Include-I D:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DSTM32F10X_HD-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+I (stm32f10x.h)(0x5E2695E7)
+F (.\startup_stm32f10x_hd.s)(0x559784E0)(--cpu Cortex-M3 -g --apcs=interwork --pd "__MICROLIB SETA 1"-I C:\Users\onewall\Desktop\REG-LED\RTE-I D:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\Include-I D:\Keil_v5\ARM\CMSIS\Include--pd "__UVISION_VERSION SETA 515" --pd "STM32F10X_HD SETA 1"--list .\listings\startup_stm32f10x_hd.lst --xref -o .\objects\startup_stm32f10x_hd.o --depend .\objects\startup_stm32f10x_hd.d)
+F (.\stm32f10x.h)(0x5E2695E7)()
