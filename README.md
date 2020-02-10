@@ -1,2 +1,3 @@
 # YH-stm32f10x
 
+STM32F103RCT6 - 野火MINI
