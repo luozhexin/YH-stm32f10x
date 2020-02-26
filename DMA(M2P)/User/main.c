@@ -25,7 +25,7 @@ USARTx_DMA_Config();
 USART_DMACmd(DEBUG_USARTx, USART_DMAReq_Tx, ENABLE);
   while(1)
   {
-    LED1_TOGGLE
+    LED1_TOGGLE;
     Delay(0xFFFFF);
   }
 
