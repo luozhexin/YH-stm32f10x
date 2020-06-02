@@ -160,7 +160,7 @@ void i2c_WRITE_BYTE(uint8_t data)
 }
 
 //读取数据位
-uint8_t i2c_READ_BYTE(uint8_t data)
+uint8_t i2c_READ_BYTE(void)
 {
 	uint8_t i;
 	uint8_t temp=0;
@@ -185,4 +185,27 @@ uint8_t i2c_READ_BYTE(uint8_t data)
 	}
 	return temp;
 }
+
+//uint8_t i2c_ReadByte(void)
+//{
+//	uint8_t i;
+//	uint8_t value;
+
+//	/* 读到第1个bit为数据的bit7 */
+//	value = 0;
+//	for (i = 0; i < 8; i++)
+//	{
+//		value <<= 1;
+//		EEPROM_I2C_SCL_1();
+//		i2c_Delay();
+//		if (EEPROM_I2C_SDA_READ())
+//		{
+//			value++;
+//		}
+//		EEPROM_I2C_SCL_0();
+//		i2c_Delay();
+//	}
+//	return value;
+//}
+
 /*********************************************END OF FILE**********************/

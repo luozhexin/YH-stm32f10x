@@ -8,7 +8,7 @@ uint8_t ee_CHECK_DEVICE(uint8_t addr)
 	uint8_t result;
 	i2c_START();
 	//发送EEPROM设备地址
-	i2c_READ_BYTE(addr);
+		i2c_WRITE_BYTE(addr);
 	
 	if(i2c_WAIT_ASK()==1)
 	{
@@ -66,13 +66,14 @@ uint8_t ee_WRITE_BYTE(uint8_t w_addr,uint8_t data)
 				{
 					//写入数据
 					i2c_WRITE_BYTE(data);
-				}
+				
 				if(i2c_WAIT_ASK()) //未响应
 				{
 					goto w_fail;
 				}
 				else
 				{}
+				}
 	}
 
 	
@@ -88,3 +89,56 @@ uint8_t ee_WRITE_BYTE(uint8_t w_addr,uint8_t data)
 	return 0;
 
 }
+//从EEPROM读取一个字节
+//正常：1 错误：0
+uint8_t ee_READ_BYTE(uint8_t r_addr,uint8_t *data)
+{
+	if(ee_WAIT_STANDBY())
+	goto r_fail;
+	
+	
+	i2c_START();
+	//发送EEPROM设备地址
+	i2c_WRITE_BYTE(EEPROM_ADDR|EEPROM_WRITE_DIR);
+	
+	if(i2c_WAIT_ASK())
+	{
+		goto r_fail;
+	}
+	else
+	{
+		//发送要读取的存储单元格地址
+		i2c_WRITE_BYTE(r_addr);
+				if(i2c_WAIT_ASK()) //未响应
+				{
+					goto r_fail;
+				}
+				else
+				{
+					i2c_START();
+					
+					//发送第二次设备地址，读方式
+					i2c_WRITE_BYTE(EEPROM_ADDR|EEPROM_READ_DIR);
+					if(i2c_WAIT_ASK()) //未响应
+					{
+						goto r_fail;
+					}
+					else
+					{
+						*data=i2c_READ_BYTE();						
+					}
+				}
+
+	}
+  i2c_NASK();
+	
+	i2c_STOP();
+	
+	return 1;
+	
+	r_fail:
+	i2c_STOP();
+	return 0;
+
+}
+

@@ -10,4 +10,5 @@
 uint8_t ee_CHECK_DEVICE(uint8_t addr);
 uint8_t ee_WAIT_STANDBY(void);
 uint8_t ee_WRITE_BYTE(uint8_t w_addr,uint8_t data);
+uint8_t ee_READ_BYTE(uint8_t r_addr,uint8_t *data);
 #endif /*__BSP_I2C_EE_H*/

@@ -27,9 +27,10 @@
   */
 int main(void)
 {	
+  uint8_t temp=0;
   /*初始化USART 配置模式为 115200 8-N-1，中断接收*/
   USART_Config();
-	i2c_GPIO_Config();
+//	i2c_GPIO_Config();
 	printf("欢迎使用野火STM32开发板\n");
 	
   if(ee_CHECK_DEVICE(EEPROM_ADDR|EEPROM_READ_DIR)==0)
@@ -47,6 +48,20 @@ int main(void)
 	else
 	{
 		printf("\r\n写入异常\r\n");
+	}
+//	if(ee_READ_BYTE(1,&temp)==1)
+//	{
+//		printf("\r\n读取正常\r\n");
+//	}
+//	else
+//	{
+//		printf("\r\n读取异常\r\n");
+//	}
+	
+	ee_READ_BYTE(1,&temp);
+	printf("\r\ntemp=%d\r\n",temp);
+	while(1)
+	{
 	}
 }
 /*********************************************END OF FILE**********************/

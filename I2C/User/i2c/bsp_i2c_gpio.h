@@ -41,6 +41,6 @@ void i2c_ASK(void);
 void i2c_NASK(void);
 uint8_t i2c_WAIT_ASK(void);
 void i2c_WRITE_BYTE(uint8_t data);
-uint8_t i2c_READ_BYTE(uint8_t data);
+uint8_t i2c_READ_BYTE(void);
 
 #endif /*__BSP_I2C_GPIO_H*/
